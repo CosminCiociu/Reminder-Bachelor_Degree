@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome to Reminder!{% endblock %}
+
+
+{% block body %}
+
+        <div class="container100">
+            <div class="containerTitle">
+                <div class="homePageTitle">
+                    <h1 class="middleText">BECAUSE WE ARE ALL LEAVING IN A <span style="color: rgba(255, 0, 0, 0.473);">WORLD OF DISORDER</span>  </h1>
+                </div>
+            </div>
+            <img class="backstrach_Img" src="{{ asset('uploads/remindme.jpg') }}" alt="">
+        </div>
+        {% include('home/widgets.html.twig') %}
+        {% include('footer.html.twig') %}
+{% endblock %}

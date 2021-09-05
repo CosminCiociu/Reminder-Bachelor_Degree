@@ -1,0 +1,28 @@
+/* body{
+    background-color: yellow;
+} */
+form.FormReminder{
+
+}
+textarea.DescriptionForm{
+    width: 100%;
+    position: relative;
+}
+label.labelDescription{
+    font-size: 140%;
+    font-weight: bold;
+}
+textarea#reminder_form_Description{
+    line-height: 2.5;
+}
+button#reminder_form_submit{
+    font-size: 110%;
+    border-radius: 0;
+    color: white;
+    background-color: #bdc3c7;
+    border: 1px solid transparent;
+}
+button#reminder_form_submit:hover{
+    background-color: #007bff;
+    color: white;
+}

@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Set Reminder{% endblock %}
+
+{% block body %}
+<!-- Add Css Timer  -->
+<link rel="stylesheet" type="text/css" href="{{ asset('js/dist/mtr-datepicker.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{asset('js/dist/mtr-datepicker.default-theme.min.css')}}">
+<!-- Add custom Css setReminder -->
+<link rel="stylesheet" href="{{ asset('css/setReminder.css') }}" >
+
+
+    <div class="w-100">
+        <div class="mx-auto w-50 ">
+          {{ form_start(form, {'action': '#', 'method': 'POST'}) }}
+              <label class="labelDescription" for="futureDate">Reminder date:</label>
+                <div id="disable-ampm-mtr-datepicker">
+                </div>
+          {{ form_end(form) }}
+        </div>
+      </div>
+
+    <!-- Initialize  custom Timer -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/dist/mtr-datepicker.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/dist/sendData.js') }}"></script>
+    <script>
+        var config = {
+            target: 'disable-ampm-mtr-datepicker',  // ID of HTML element
+            future:     true,                // Only dates in the future,
+            //smartHours: false,                // Make a smart switch from AM to PM
+            animations: true,                 // NOTE: thew version with disabled animations is not stable
+            disableAmPm: true,
+
+            months: {
+              min: 0,
+              max: 11,
+              step: 1
+            },
+            minutes: {
+              min: 0,
+              max: 59,
+              step: 1
+            },
+            years: {
+              min: 2000,
+              max: 2030,
+              step: 1
+            }
+          };
+      var myDatepicker = new MtrDatepicker(config);
+
+      console.log(myDatepicker);
+
+      myDatepicker.onChange('date', function() {
+      
+      var datepickerOutput = myDatepicker.format('Y/MM/DD hh:mm');
+      
+      createCookie("ReminderDate", datepickerOutput, "1");  //Create Cookie with the value of the date
+
+      });
+      myDatepicker.onChange('time', function() {
+      
+      var datepickerOutput = myDatepicker.format('D.M.Y h:m ');
+      createCookie("ReminderDate", datepickerOutput, "1");  //Create Cookie with the value of the date
+
+      });
+      
+    </script>
+{% endblock %}

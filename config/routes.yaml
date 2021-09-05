@@ -1,0 +1,12 @@
+home:
+   path: /
+   controller: App\Controller\HomeController::index
+description:
+   path: /description
+   controller: App\Controller\DescriptionController::index
+setReminder:
+   path: /setreminder
+   controller: App\Controller\SetReminderController::index
+sendMail:
+   path: /sendMail
+   controller: App\Controller\MailerController::checkTime
